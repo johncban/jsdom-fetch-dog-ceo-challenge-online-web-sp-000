@@ -16,6 +16,11 @@ const dropdown = document.querySelector("#breed-dropdown")
 // State
 let breedList = []
 
+document.addEventListener('DOMContentLoaded', function() {
+  loadBreeds();
+  loadImages();
+});
+
 // added the event listener to the dropdown
 dropdown.addEventListener("change", event => {
   // got the selected value
