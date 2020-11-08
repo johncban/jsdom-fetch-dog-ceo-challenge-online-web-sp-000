@@ -139,6 +139,10 @@ function addBreed(breed) {
   li.addEventListener('click', updateColor);
 }
 
+function updateColor(event) {
+  event.target.style.color = 'palevioletred';
+}
+
 function renderBreed(breed) {
   const li = document.createElement("li")
   li.textContent = breed
