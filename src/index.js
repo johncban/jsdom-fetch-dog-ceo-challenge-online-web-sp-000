@@ -25,7 +25,7 @@ dropdown.addEventListener("change", event => {
   const filteredBreeds = breedList.filter(function(breed) {
     return breed.startsWith(letter)
   })
-  
+
   // (also, clear the list)
   dogList.innerHTML = ''
 
@@ -67,7 +67,7 @@ function renderImage(imageUrl) {
 function renderAllImages(data) {
   // when we have the data
   const images = data.message
-    
+
   // append to the DOM
   images.forEach(imageUrl => {
     renderImage(imageUrl)
@@ -77,9 +77,13 @@ function renderAllImages(data) {
 function loadImages() {
   // when the page loads
   // make a GET request
-  fetch("https://dog.ceo/api/breeds/image/random/4")
+  const imgUrl = "https://dog.ceo/api/breeds/image/random/4"
+  fetch(imgUrl)
     .then(response => response.json())
-    .then(renderAllImages)
+    //.then(renderAllImages)
+    .then(results => {
+      results.message.forEach(image => addImage(image))
+    });
 }
 
 
