@@ -84,8 +84,40 @@ function loadImages() {
     .then(results => {
       results.message.forEach(image => addImage(image))
     });
+ }
+
+ function addImage(dogPicUrl) {
+   let container = document.querySelector('#dog-image-container');
+   let newImageEl = document.createElement('img');
+   newImageEl.src = dogPicUrl;
+   container.appendChild(newImageEl);
+ }
+
+ function loadBreedOptions() {
+   const breedUrl = 'https://dog.ceo/api/breeds/list/all'
+   fetch(breedUrl)
+     .then(res => res.json())
+     .then(results => {
+
+       breeds = Object.keys(results.message);
+       updateBreedList(breeds);
+       addBreedSelectListener();
+     });
+ }
+
+function updateBreedList(breeds) {
+  let ul = document.querySelector('#dog-breeds');
+  removeChildren(ul);
+  breeds.forEach(breed => addBreed(breed));
 }
 
+function removeChildren(element) {
+  let child = element.lastElementChild;
+  while (child) {
+    element.removeChild(child);
+    child = element.lastElementChild;
+  }
+}
 
 function renderBreed(breed) {
   const li = document.createElement("li")
