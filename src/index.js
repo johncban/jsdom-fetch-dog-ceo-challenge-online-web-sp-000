@@ -123,6 +123,13 @@ function selectBreedsStartingWith(letter) {
   updateBreedList(breeds.filter(breed => breed.startsWith(letter)));
 }
 
+function addBreedSelectListener() {
+  let breedDropdown = document.querySelector('#breed-dropdown');
+  breedDropdown.addEventListener('change', function (event) {
+    selectBreedsStartingWith(event.target.value);
+  });
+}
+
 function renderBreed(breed) {
   const li = document.createElement("li")
   li.textContent = breed
