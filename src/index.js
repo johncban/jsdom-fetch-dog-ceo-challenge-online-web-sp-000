@@ -163,5 +163,7 @@ function loadBreeds() {
     })
 }
 
+/*
 loadBreeds()
 loadImages()
+*/
