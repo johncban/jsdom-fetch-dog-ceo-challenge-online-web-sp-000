@@ -130,6 +130,15 @@ function addBreedSelectListener() {
   });
 }
 
+function addBreed(breed) {
+  let ul = document.querySelector('#dog-breeds');
+  let li = document.createElement('li');
+  li.innerText = breed;
+  li.style.cursor = 'pointer';
+  ul.appendChild(li);
+  li.addEventListener('click', updateColor);
+}
+
 function renderBreed(breed) {
   const li = document.createElement("li")
   li.textContent = breed
