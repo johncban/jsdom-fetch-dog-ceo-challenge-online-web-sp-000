@@ -119,6 +119,10 @@ function removeChildren(element) {
   }
 }
 
+function selectBreedsStartingWith(letter) {
+  updateBreedList(breeds.filter(breed => breed.startsWith(letter)));
+}
+
 function renderBreed(breed) {
   const li = document.createElement("li")
   li.textContent = breed
